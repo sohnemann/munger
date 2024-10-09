@@ -1,4 +1,4 @@
-FROM python:3.9.16-alpine3.17
+FROM python:3.13-alpine3.20
 WORKDIR /app
 
 RUN apk add --no-cache gcc musl-dev libffi-dev openssl-dev tiff-tools ghostscript netpbm
