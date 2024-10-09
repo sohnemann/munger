@@ -1,6 +1,6 @@
 mount:
-    path: <some smb path>
+    path: smb://192.168.88.54/Scans
     mount_folder: /mnt/scans/
     scans_folder: src/munger/scans
     fs: cifs
-    options: username=foo,password=bar,file_mode=0664,dir_mode=0775,gid=scanner
+    options: username=scanner,password=c7L83X8!,file_mode=0664,dir_mode=0775,gid=scanner
