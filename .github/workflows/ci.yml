@@ -7,12 +7,12 @@ on:
 
 jobs:
   device:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-22.04
     steps:
     - uses: actions/checkout@v2
     - uses: ruby/setup-ruby@v1
       with:
-        ruby-version: 2.6
+        ruby-version: 3.3.5
         bundler-cache: true
         working-directory: device
     - run: |
