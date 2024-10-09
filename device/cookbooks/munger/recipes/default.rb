@@ -26,19 +26,19 @@ if (File.exist?("/etc/scanner/drive.yaml"))
 end
 
 replace_or_add 'spi config' do
-    path '/boot/config.txt'
+    path '/boot/firmware/config.txt'
     pattern 'dtparam=spi=on'
     line 'dtparam=spi=on'
 end
 
-ruby_block '/boot/cmdline.txt' do
+ruby_block '/boot/firmware/cmdline.txt' do
     block do
-        unless File.exist?('/boot/cmdline.txt')
-            File.open('/boot/cmdline.txt', 'w') do |f|
+        unless File.exist?('/boot/firmware/cmdline.txt')
+            File.open('/boot/firmware/cmdline.txt', 'w') do |f|
                 f.write('rootwait')
             end
         end
-        file = Chef::Util::FileEdit.new('/boot/cmdline.txt')
+        file = Chef::Util::FileEdit.new('/boot/firmware/cmdline.txt')
         file.search_file_replace(/rootwait.*/, "rootwait fbcon=map:10 consoleblank=")
         file.write_file
     end
